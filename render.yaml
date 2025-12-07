@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: apnacyber-playwright-worker
+    env: node
+    plan: free
+    region: singapore
+
+    buildCommand: |
+      npm install
+      npx playwright install-deps
+      npx playwright install chromium
+
+    startCommand: |
+      node server.js
+
+    envVars:
+      - key: PLAYWRIGHT_WORKER_SECRET
+        sync: false
+
+    healthCheckPath: /
