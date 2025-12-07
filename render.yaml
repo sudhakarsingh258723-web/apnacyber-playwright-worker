@@ -2,19 +2,27 @@ services:
   - type: web
     name: apnacyber-playwright-worker
     env: node
-    plan: free
-    region: singapore
-
+    plan: starter
+    region: oregon     # or any preferred region
     buildCommand: |
       npm install
-      npx playwright install-deps
       npx playwright install chromium
-
-    startCommand: |
-      node server.js
+    startCommand: node server.js
 
     envVars:
-      - key: PLAYWRIGHT_WORKER_SECRET
+      - key: NODE_ENV
+        value: production
+      - key: PLAYWRIGHT_BROWSERS_PATH
+        value: /usr/src/app/node_modules/playwright/.local-browsers
+      - key: WORKER_SECRET_KEY
         sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: GOOGLE_CX
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PORT
+        value: 10000
 
-    healthCheckPath: /
+    healthCheckPath: /      # Your worker responds on "/"
