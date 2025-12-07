@@ -1,0 +1,57 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+.secrets/
+*.key
+*.pem
+
+# Logs
+logs
+*.log
+dist/logs
+
+# Build / output
+dist/
+build/
+.out/
+.next/
+coverage/
+tmp/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Playwright
+playwright/.local-browsers/
+playwright/.cache/
+playwright-report/
+test-results/
+.chromium/
+.firefox/
+.webkit/
+
+# Render / CI
+render.yaml.local
+render-build/
+.rende r/    # (if you create a render folder; remove space if using)
+
+# Misc
+*.swp
+*.lock
+*.bak
